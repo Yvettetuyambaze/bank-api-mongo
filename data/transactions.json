@@ -1,0 +1,13 @@
+[
+    {
+      "accountNumber": "A001",
+      "amount": 1000,
+      "transactionType": "deposit"
+    },
+    {
+      "accountNumber": "A001",
+      "amount": 500,
+      "transactionType": "withdrawal"
+    }
+  ]
+  
