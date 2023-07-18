@@ -29,7 +29,7 @@ describe('Customer Controller', () => {
     });
   });
 
-  // Test other customer controller endpoints...
+  // Testing other customer controller endpoints...
 
 });
 
