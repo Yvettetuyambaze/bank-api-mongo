@@ -1,9 +1,9 @@
-// models/BankAccount.js
 const mongoose = require('mongoose');
 
 const bankAccountSchema = new mongoose.Schema({
   customerNumber: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Customer',
     required: true,
   },
   accountNumber: {
@@ -21,4 +21,6 @@ const bankAccountSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('BankAccount', bankAccountSchema);
+const BankAccount = mongoose.model('BankAccount', bankAccountSchema);
+
+module.exports = BankAccount;

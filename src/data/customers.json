@@ -1,0 +1,16 @@
+[
+  {
+    "name": "John Doe",
+    "date_of_birth": "1990-01-01",
+    "phone_number": "1234567890",
+    "address": "123 Main St",
+    "category_id": "1"
+  },
+  {
+    "name": "Jane Smith",
+    "date_of_birth": "1985-05-10",
+    "phone_number": "9876543210",
+    "address": "456 Elm St",
+    "category_id": "2"
+  }
+]

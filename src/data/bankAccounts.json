@@ -1,0 +1,14 @@
+[
+  {
+    "customer_number": "1",
+    "account_number": "A001",
+    "status": "active",
+    "created_date": "2023-07-01"
+  },
+  {
+    "customer_number": "2",
+    "account_number": "A002",
+    "status": "active",
+    "created_date": "2023-07-02"
+  }
+]
