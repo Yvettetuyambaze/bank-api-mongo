@@ -9,12 +9,12 @@ router.post('/bank-accounts', bankAccountController.createBankAccount);
 router.get('/bank-accounts', bankAccountController.getAllBankAccounts);
 
 // Get a bank account by ID
-router.get('/bank-accounts/:accountId', bankAccountController.getBankAccountById);
+router.get('/bank-accounts/:bankAccountId', bankAccountController.getBankAccountById);
 
 // Update a bank account by ID
-router.put('/bank-accounts/:accountId', bankAccountController.updateBankAccount);
+router.put('/bank-accounts/:bankAccountId', bankAccountController.updateBankAccount);
 
 // Delete a bank account by ID
-router.delete('/bank-accounts/:accountId', bankAccountController.deleteBankAccount);
+router.delete('/bank-accounts/:bankAccountId', bankAccountController.deleteBankAccount);
 
 module.exports = router;

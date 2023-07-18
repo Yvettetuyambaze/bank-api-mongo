@@ -43,43 +43,47 @@ exports.getCustomerById = async (req, res) => {
 };
 
 // Update a customer by ID
-exports.updateCustomerById = async (req, res) => {
-  try {
-    const customerId = req.params.customerId;
-    const { name, dateOfBirth, phoneNumber, address, categoryId } = req.body;
+exports.updateCustomer = async (req, res) => {
+    // Implementation of updating the customer
+    try {
+        const customerId = req.params.customerId;
+        const { name, dateOfBirth, phoneNumber, address, categoryId } = req.body;
+    
+        const customer = await Customer.findByIdAndUpdate(
+          customerId,
+          {
+            name,
+            dateOfBirth,
+            phoneNumber,
+            address,
+            categoryId,
+          },
+          { new: true }
+        );
+    
+        if (!customer) {
+          return res.status(404).json({ success: false, message: 'Customer not found' });
+        }
+    
+        res.json({ success: true, data: customer });
+      } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+      }
+  };
 
-    const customer = await Customer.findByIdAndUpdate(
-      customerId,
-      {
-        name,
-        dateOfBirth,
-        phoneNumber,
-        address,
-        categoryId,
-      },
-      { new: true }
-    );
-
-    if (!customer) {
-      return res.status(404).json({ success: false, message: 'Customer not found' });
-    }
-
-    res.json({ success: true, data: customer });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-};
 
 // Delete a customer by ID
-exports.deleteCustomerById = async (req, res) => {
-  try {
-    const customerId = req.params.customerId;
-    const customer = await Customer.findByIdAndDelete(customerId);
-    if (!customer) {
-      return res.status(404).json({ success: false, message: 'Customer not found' });
+exports.deleteCustomer = async (req, res) => {
+    try {
+      const customerId = req.params.customerId;
+      // Implementation of deleting the customer
+      const customer = await Customer.findByIdAndDelete(customerId);
+      if (!customer) {
+        return res.status(404).json({ success: false, message: 'Customer not found' });
+      }
+      res.json({ success: true, message: 'Customer deleted successfully' });
+    } catch (error) {
+      res.status(500).json({ success: false, error: error.message });
     }
-    res.json({ success: true, data: customer });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-};
+  };
+

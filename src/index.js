@@ -1,24 +1,26 @@
 const express = require('express');
-const app = express();
+const connectDB = require('../config/db');
 const customerRoutes = require('./routes/customerRoutes');
 const bankAccountRoutes = require('./routes/bankAccountRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 const customerCategoryRoutes = require('./routes/customerCategoryRoutes');
-const db = require('./db');
 
-// Parse JSON body
+const app = express();
+
+// Connect to the database
+connectDB();
+
+// Middleware
 app.use(express.json());
 
-// Register routes
+// Routes
 app.use('/api', customerRoutes);
 app.use('/api', bankAccountRoutes);
 app.use('/api', transactionRoutes);
 app.use('/api', customerCategoryRoutes);
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ success: false, error: 'Internal Server Error' });
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-
-module.exports = app;

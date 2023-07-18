@@ -42,7 +42,7 @@ exports.getBankAccountById = async (req, res) => {
 };
 
 // Update a bank account by ID
-exports.updateBankAccountById = async (req, res) => {
+exports.updateBankAccount = async (req, res) => {
   try {
     const bankAccountId = req.params.bankAccountId;
     const { customerNumber, accountNumber, status, createdDate } = req.body;
@@ -69,7 +69,7 @@ exports.updateBankAccountById = async (req, res) => {
 };
 
 // Delete a bank account by ID
-exports.deleteBankAccountById = async (req, res) => {
+exports.deleteBankAccount = async (req, res) => {
   try {
     const bankAccountId = req.params.bankAccountId;
     const bankAccount = await BankAccount.findByIdAndDelete(bankAccountId);

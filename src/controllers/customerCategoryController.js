@@ -22,7 +22,7 @@ exports.getAllCustomerCategories = async (req, res) => {
   }
 };
 
-// Get customer category by ID
+// Get a customer category by ID
 exports.getCustomerCategoryById = async (req, res) => {
   try {
     const customerCategoryId = req.params.customerCategoryId;
@@ -36,26 +36,29 @@ exports.getCustomerCategoryById = async (req, res) => {
   }
 };
 
-// Update customer category by ID
+// Update a customer category by ID
 exports.updateCustomerCategoryById = async (req, res) => {
   try {
     const customerCategoryId = req.params.customerCategoryId;
     const { categoryName } = req.body;
+
     const updatedCustomerCategory = await CustomerCategory.findByIdAndUpdate(
       customerCategoryId,
       { categoryName },
       { new: true }
     );
+
     if (!updatedCustomerCategory) {
       return res.status(404).json({ success: false, message: 'Customer category not found' });
     }
+
     res.json({ success: true, data: updatedCustomerCategory });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 };
 
-// Delete customer category by ID
+// Delete a customer category by ID
 exports.deleteCustomerCategoryById = async (req, res) => {
   try {
     const customerCategoryId = req.params.customerCategoryId;

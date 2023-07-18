@@ -9,12 +9,12 @@ router.post('/customer-categories', customerCategoryController.createCustomerCat
 router.get('/customer-categories', customerCategoryController.getAllCustomerCategories);
 
 // Get a customer category by ID
-router.get('/customer-categories/:categoryId', customerCategoryController.getCustomerCategoryById);
+router.get('/customer-categories/:customerCategoryId', customerCategoryController.getCustomerCategoryById);
 
 // Update a customer category by ID
-router.put('/customer-categories/:categoryId', customerCategoryController.updateCustomerCategory);
+router.put('/customer-categories/:customerCategoryId', customerCategoryController.updateCustomerCategoryById);
 
 // Delete a customer category by ID
-router.delete('/customer-categories/:categoryId', customerCategoryController.deleteCustomerCategory);
+router.delete('/customer-categories/:customerCategoryId', customerCategoryController.deleteCustomerCategoryById);
 
 module.exports = router;
