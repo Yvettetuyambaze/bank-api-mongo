@@ -1,23 +1,29 @@
-// models/Customer.js
 const mongoose = require('mongoose');
 
 const customerSchema = new mongoose.Schema({
-  customerNumber: {
+  name: {
     type: String,
     required: true,
   },
-  firstName: {
+  dateOfBirth: {
+    type: Date,
+    required: true,
+  },
+  phoneNumber: {
     type: String,
     required: true,
   },
-  lastName: {
+  address: {
     type: String,
     required: true,
   },
-  email: {
-    type: String,
+  categoryId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'CustomerCategory',
     required: true,
   },
 });
 
-module.exports = mongoose.model('Customer', customerSchema);
+const Customer = mongoose.model('Customer', customerSchema);
+
+module.exports = Customer;

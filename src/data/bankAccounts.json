@@ -1,15 +1,14 @@
 [
-    {
-      "customerNumber": "C001",
-      "accountNumber": "A001",
-      "status": "active",
-      "createdDate": "2023-07-10T00:00:00Z"
-    },
-    {
-      "customerNumber": "C002",
-      "accountNumber": "A002",
-      "status": "active",
-      "createdDate": "2023-07-10T00:00:00Z"
-    }
-  ]
-  
+  {
+    "customer_number": "1",
+    "account_number": "A001",
+    "status": "active",
+    "created_date": "2023-07-01"
+  },
+  {
+    "customer_number": "2",
+    "account_number": "A002",
+    "status": "active",
+    "created_date": "2023-07-02"
+  }
+]

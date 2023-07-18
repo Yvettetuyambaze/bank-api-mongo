@@ -1,11 +1,8 @@
 [
-    {
-      "categoryCode": "CAT001",
-      "categoryName": "Regular"
-    },
-    {
-      "categoryCode": "CAT002",
-      "categoryName": "Premium"
-    }
-  ]
-  
+  {
+    "category_name": "Retail"
+  },
+  {
+    "category_name": "Corporate"
+  }
+]

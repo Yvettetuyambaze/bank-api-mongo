@@ -1,44 +1,20 @@
-// routes/customerRoutes.js
 const express = require('express');
 const router = express.Router();
-const Customer = require('../models/Customer');
+const customerController = require('../controllers/customerController');
 
 // Create a new customer
-router.post('/customers', async (req, res) => {
-  try {
-    const { customerNumber, firstName, lastName, email } = req.body;
-    const customer = new Customer({ customerNumber, firstName, lastName, email });
-    await customer.save();
-    res.status(201).json({ success: true, data: customer });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-});
+router.post('/customers', customerController.createCustomer);
 
 // Get all customers
-router.get('/customers', async (req, res) => {
-  try {
-    const customers = await Customer.find();
-    res.json({ success: true, data: customers });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-});
+router.get('/customers', customerController.getAllCustomers);
 
 // Get a customer by ID
-router.get('/customers/:customerId', async (req, res) => {
-  try {
-    const customerId = req.params.customerId;
-    const customer = await Customer.findById(customerId);
-    if (!customer) {
-      return res.status(404).json({ success: false, message: 'Customer not found' });
-    }
-    res.json({ success: true, data: customer });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-});
+router.get('/customers/:customerId', customerController.getCustomerById);
 
-// ... other customer routes
+// Update a customer by ID
+router.put('/customers/:customerId', customerController.updateCustomer);
+
+// Delete a customer by ID
+router.delete('/customers/:customerId', customerController.deleteCustomer);
 
 module.exports = router;

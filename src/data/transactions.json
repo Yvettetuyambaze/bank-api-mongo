@@ -1,13 +1,14 @@
 [
-    {
-      "accountNumber": "A001",
-      "amount": 1000,
-      "transactionType": "deposit"
-    },
-    {
-      "accountNumber": "A001",
-      "amount": 500,
-      "transactionType": "withdrawal"
-    }
-  ]
-  
+  {
+    "account_number": "A001",
+    "amount": 1000,
+    "balance": 1000,
+    "created_date": "2023-07-01"
+  },
+  {
+    "account_number": "A002",
+    "amount": 500,
+    "balance": 500,
+    "created_date": "2023-07-02"
+  }
+]

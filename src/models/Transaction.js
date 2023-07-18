@@ -1,4 +1,3 @@
-// models/Transaction.js
 const mongoose = require('mongoose');
 
 const transactionSchema = new mongoose.Schema({
@@ -14,15 +13,17 @@ const transactionSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  transactionType: {
-    type: String,
-    enum: ['deposit', 'withdrawal'],
-    required: true,
-  },
-  timestamp: { 
+  createdDate: {
     type: Date,
     default: Date.now,
   },
+  transactionType: {
+    type: String,
+    enum: ['credit', 'debit'],
+    required: true,
+  },
 });
 
-module.exports = mongoose.model('Transaction', transactionSchema);
+const Transaction = mongoose.model('Transaction', transactionSchema);
+
+module.exports = Transaction;
