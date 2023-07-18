@@ -19,7 +19,7 @@ const transactionSchema = new mongoose.Schema({
     enum: ['deposit', 'withdrawal'],
     required: true,
   },
-  timestamp: {
+  timestamp: { 
     type: Date,
     default: Date.now,
   },

@@ -13,13 +13,15 @@ router.post('/transactions', async (req, res) => {
       return res.status(404).json({ success: false, message: 'Bank account not found' });
     }
 
+    let balance = bankAccount.balance; // Initialize balance with the existing account balance
+
     if (transactionType === 'deposit') {
-      bankAccount.balance += amount;
+      balance += amount;
     } else if (transactionType === 'withdrawal') {
-      if (bankAccount.balance < amount) {
+      if (balance < amount) {
         return res.status(400).json({ success: false, message: 'Insufficient balance for withdrawal' });
       }
-      bankAccount.balance -= amount;
+      balance -= amount;
     } else {
       return res.status(400).json({ success: false, message: 'Invalid transaction type' });
     }
@@ -27,7 +29,7 @@ router.post('/transactions', async (req, res) => {
     const transaction = new Transaction({
       accountNumber,
       amount,
-      balance: bankAccount.balance,
+      balance,
       transactionType,
     });
 
@@ -40,6 +42,7 @@ router.post('/transactions', async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
+
 
 // Get all transactions
 router.get('/transactions', async (req, res) => {
